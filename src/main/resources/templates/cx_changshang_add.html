@@ -1,0 +1,45 @@
+<form id="ffchangshang" method="post">
+    <div>
+        <label for="factoryName">厂商名称:</label>
+        <input class="easyui-validatebox" type="text" name="factoryName" data-options="required:true" />
+    </div>
+    <div>
+        <label for="brandName">品牌名称:</label>
+        <input class="easyui-validatebox" type="text" name="brandName" data-options="required:true" />
+    </div>
+    <div>
+        <label for="factoryLog">厂商log:</label>
+        <input class="easyui-validatebox" type="text" name="factoryLog" data-options="validType:'factoryLog'" />
+    </div>
+    <div>
+        <label for="factoryTime">厂商创建时间:</label>
+        <input class="easyui-validatebox" type="text" name="factoryTime" data-options="validType:'factoryTime'" />
+    </div>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="quickaddchangshang()">立刻添加</a>
+
+</form>
+<script>
+
+    function quickaddchangshang(){
+        <!--ajax第一步-->
+        $('#ffchangshang').form({
+            url:'addchangshangfun',
+            onSubmit: function(){
+                // do some check
+                // return false to prevent submit;
+                return true;
+            },
+            success:function(data){
+                var myData = JSON.parse(data);
+                $.messager.alert("提示",myData.message);
+                $("#addpinpaiwin").window("close");
+
+            }
+        });
+        /*ajax提交第二部*/
+        // submit the form
+        $('#ffchangshang').submit();
+    }
+
+</script>
+

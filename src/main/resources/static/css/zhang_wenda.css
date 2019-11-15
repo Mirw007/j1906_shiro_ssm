@@ -1,0 +1,328 @@
+*{
+	font-family: "黑体";
+    font-family: Microsoft Yahei,arial,"sans-serif";
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	min-width: 1190px;
+	font-family: Microsoft Yahei, arial, "sans-serif";
+	border: 0px;
+}
+li,ol,ul{
+	list-style: none;
+}
+a{
+	color: #666;
+}
+#header {
+    width: 100%;
+    height: 130px;
+    border: 0px solid darkgreen;
+}
+
+/*头部的上部样式*/
+#header .top {
+    width: 1190px;
+    min-width: 1190px;
+    height: 85px;
+    margin: 0 auto;
+}
+
+#header .top .top_icon {
+    width: 257px;
+    height: 85px;
+    background-image: url("../img/iconSet.png");
+    float: left;
+}
+
+#header .top .city {
+    width: 88px;
+    height: 36px;
+    margin: 25px 0px 0px 30px;
+    display: inline-block;
+    position: relative;
+    z-index: 20;
+    float: left;
+}
+
+#header .top .uc {
+    width: 87px;
+    height: 30px;
+    float: right;
+    padding: 0 8px 0 17px;
+    margin: 27px 0 0 23px;
+    border-left: 1px solid #D4D4D4;
+}
+
+#header .top .uc a {
+    position: relative;
+    z-index: 100;
+    display: inline-block;
+    line-height: 30px;
+    padding-left: 33px;
+    font-size: 14px;
+    color: #2e2e2e;
+    background: url("../img/iconuc.png") no-repeat left 3px;
+    text-decoration: none;
+    font-style: normal;
+}
+
+#header .top .hot-phone {
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    margin-top: 27px;
+    color: #22ac38;
+    font-weight: 700;
+    font-family: Microsoft Yahei, arial, "sans-serif";
+}
+
+#header .top .hot-phone i {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    float: left;
+    background-position: -30px -100px;
+    background-image: url("../img/iconSet.png");
+}
+
+#header .top .search-box {
+    position: relative;
+    width: 402px;
+    height: 36px;
+    padding: 25px 95px 0px 0px;
+    float: right;
+    z-index: 20;
+}
+
+#header .top .search-box .search {
+
+}
+
+#header .top .search-box .search .search-input {
+    float: left;
+    width: 244px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    border: 1px solid #22ac38;
+    border-right: none;
+    border-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+}
+
+#header .top .search-box .search .search-btn {
+    float: right;
+    width: 63px;
+    height: 36px;
+    color: #fff;
+    background: #22ac38;
+    border: none;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+}
+
+/*头部的导航栏样式*/
+#header .nav {
+	width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: #22AC38;
+    color: #FFFFFF;
+}
+
+#header .nav .w {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+#header .nav .w a {
+    display: inline-block;
+    font-size: 16px;
+    padding: 0 30px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+#header .nav .w a:hover {
+    text-decoration: none;
+    background: #179500;
+    color: #fff;
+}
+
+#header .nav .w .fl {
+    float: left;
+}
+
+#header .nav .w .fr {
+    float: right;
+}
+
+
+.banimg{
+	height: 300px;
+    background: url("../img/banimg-2.jpg") no-repeat;
+}
+.banimg .search{
+	width: 804px;
+    height: 58px;
+    padding-top: 105px;
+    margin: 0 auto;
+}
+.banimg .ipt-text{
+    width: 680px;
+    height: 56px;
+    font-size: 20px;
+    line-height: 56px;
+}
+.ipt-text{
+	float: left;
+    width: 416px;
+    height: 34px;
+    padding: 0 10px;
+    font: 14px/34px Microsoft yahei;
+    border: 1px solid #22ac38;
+    border-radius: 5px 0 0 5px;
+}
+.banimg .ipt-btn{
+	width: 102px;
+    height: 58px;
+    background-position: 36px 13px;
+}
+.ipt-btn{
+    background-image: url(../img/icon-2.png);
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 36px;
+    padding: 0;
+    font: 16px/36px Microsoft yahei;
+    color: #fff;
+    background-color: #22ac38;
+    border: 1px solid #22ac38;
+    border-radius: 0 5px 5px 0;
+    background-position: 18px -105px;
+    text-indent: -9999px;
+}
+.ipt-btn:hover{
+	cursor: pointer;
+    background-color: #179500;
+    border: 1px solid #179500;
+}
+.hot-question{
+    width: 804px;
+    height: 44px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.hot-question a{
+	font-size: 18px;
+    line-height: 44px;
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.hot-question a:hover{
+	text-decoration: underline;
+}
+
+.hide1{
+    overflow: hidden;
+}
+.index-list{
+    margin: 38px -30px 60px 0;
+    overflow: hidden;
+}
+.box-item{
+    float: left;
+    width: 578px;
+    height: 264px;
+    margin: 37px 30px 0 0;
+}
+.bore4{
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+}
+.buy-tit{
+    background-position: -152px 0;
+}
+.policy-tit{
+	background-position: 0 -46px;
+}
+.loan-tit{
+	background-position: -152px -46px;
+}
+.buy-tit,.loan-tit,.policy-tit,.sale-tit{
+	width: 146px;
+    height: 40px;
+    margin: -7px 0 0 15px;
+    font: 20px/40px Microsoft yahei;
+    color: #fff;
+    text-align: center;
+    background-image: url(../img/icon.png);
+    background-repeat: no-repeat;
+}
+
+.buy-tit,.loan-tit,.policy-tit,.sale-tit li{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.list{
+	margin-top: 20px;
+    margin-bottom: -1px;
+    border-top: 1px dashed #e6e6e6;
+    margin-left: -40px;
+}
+.list li{
+    position: relative;
+    padding: 6px 15px 6px 33px;
+    border-bottom: 1px dashed #e6e6e6;
+}
+.list li a{
+	width: 212px;
+	height: 20px;
+	text-decoration: none;
+}
+.list li a:hover{
+	color: #e30;
+    text-decoration: none;
+}
+.sale-list .icon-circle{
+	background-position: -308px -46px;
+}
+.icon-circle{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 5px;
+    height: 5px;
+    vertical-align: middle;
+    background: url(../img/icon.png) no-repeat;
+}
+.extra{
+	padding: 28px 15px 0 0;
+    text-align: right;
+}
+.extra a{
+	font-size: 16px;
+    color: #acacac;
+    text-decoration: none;
+}
+.extra a:hover{
+	color: #22ac38;
+}
+.footer{
+	height:364px;
+	background: url(../img/footer.png);
+}

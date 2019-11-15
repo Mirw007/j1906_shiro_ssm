@@ -1,0 +1,72 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: Microsoft Yahei, arial, "sans-serif";
+    min-width: 1190px;
+    border: 0;
+}
+*{
+    font-family: "黑体";
+    font-family: Microsoft Yahei,arial,"sans-serif";
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+li,ol,ul{
+    list-style: none;
+}
+/*-------------------------内容样式---------------------*/
+#adown-body{
+    width: 100%;
+    height: 740px;
+    background: url("../img/img-3.jpg") no-repeat center 0;
+}
+#adown-body .bgce{
+    position: relative;
+    height: 740px;
+}
+#adown-body .bgce a{
+    font-size: 24px;
+    font-family: microsoft yahei;
+    text-indent: 75px;
+    height: 64px;
+    line-height: 64px;
+    width: 240px;
+    display: block;
+    position: absolute;
+    left: 111px;
+    text-decoration: none;
+    background-image: url("../img/icon-3.png");
+    background-repeat: no-repeat;
+    background-color: #22ac38;
+    color: #fff;
+    border-radius: 30px;
+}
+#adown-body .bgce .icon-android{
+    top: 460px;
+    background-position: 26px 11px;
+}
+#adown-body .bgce .icon-android:hover{
+    background-color: #179500;
+    background-position: 26px -189px;
+}
+#adown-body .bgce .icon-ios{
+    top: 540px;
+    background-position: 26px -92px;
+}
+#adown-body .bgce .icon-ios:hover{
+    background-color: #179500;
+    background-position: 26px -292px;
+}
+#adown-body .bgce .erweima{
+    position: absolute;
+    bottom: 127px;
+    left: 395px;
+    width: 158px;
+    height: 158px;
+    background: url("../img/pcappdown.png") no-repeat 0 0;
+    border: 1px solid #d2d2d2;
+}

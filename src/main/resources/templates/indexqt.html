@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>首页</title>
+        <link rel="stylesheet" href="css/h_index.css">
+        <link rel="stylesheet" href="css/h_public.css">
+        <script>
+            var i = 1;
+            function dinashiqi(){
+                if(i == 0){
+                    document.getElementById('li2').style.display = 'none';
+                    document.getElementById('em2').style.backgroundColor = '';
+                }else{
+                    document.getElementById('li'+(i-1)).style.display = 'none';
+                    document.getElementById('em'+(i-1)).style.backgroundColor = '';
+                }
+                document.getElementById('li'+i).style.display = 'block';
+                document.getElementById('em'+i).style.backgroundColor = '#000';
+                i++;
+                if(i == 3){
+                    i = 0;
+                }
+            }
+            function none(){
+               document.getElementById('li0').style.display = 'none';
+               document.getElementById('li1').style.display = 'none';
+               document.getElementById('li2').style.display = 'none';
+            }
+            function nonecolor(){
+                document.getElementById('em0').style.backgroundColor = '';
+                document.getElementById('em1').style.backgroundColor = '';
+                document.getElementById('em2').style.backgroundColor = '';
+            }
+            var int=self.setInterval("dinashiqi()",3000);
+            var bei=self.setInterval("beijing()",2000);
+            var y = 1;
+            function beijing(){
+                for (var j = 1; j < 5; j++) {
+                    document.getElementById('idimg'+j).style.display = 'none';
+                }
+                document.getElementById('idimg'+y).style.display = 'block';
+                y++;
+                if(y == 5){
+                    y = 1;
+                }
+            }
+
+            window.onload=function(){ 
+                var em0 = document.getElementById('em0');
+                var em1 = document.getElementById('em1');
+                var em2 = document.getElementById('em2');
+                var zuo = document.getElementById('zuo');
+                var you = document.getElementById('you');
+                em0.onclick=function(){
+                    int = window.clearInterval(int);
+                    none();
+                    document.getElementById('li0').style.display = 'block';
+                    nonecolor();
+                    document.getElementById('em0').style.backgroundColor = '#000';
+                    int=self.setInterval("dinashiqi()",3000);
+                    i = 0;
+                }
+                em1.onclick=function(){
+                    int = window.clearInterval(int);
+                    none();
+                    document.getElementById('li1').style.display = 'block';
+                    nonecolor();
+                    document.getElementById('em1').style.backgroundColor = '#000';
+                    int=self.setInterval("dinashiqi()",3000);
+                    i = 1;
+                }
+                em2.onclick=function(){
+                    int = window.clearInterval(int);
+                    none();
+                    document.getElementById('li2').style.display = 'block';
+                    nonecolor();
+                    document.getElementById('em2').style.backgroundColor = '#000';
+                    int=self.setInterval("dinashiqi()",3000);
+                    i = 2;
+                }
+                zuo.onclick = function(){
+                    int = window.clearInterval(int);
+                    i++;
+                    if(i>2){i = 0}
+                    none();
+                    nonecolor();
+                    document.getElementById('li'+i).style.display = 'block';
+                    document.getElementById('em'+i).style.backgroundColor = '#000';
+                    if (i==3) {i = 0}
+                    int=self.setInterval("dinashiqi()",3000);
+                }
+                you.onclick = function(){
+                    int = window.clearInterval(int);
+                    i--;
+                    if(i<0){i = 2}
+                    none();
+                    nonecolor();
+                    document.getElementById('li'+i).style.display = 'block';
+                    document.getElementById('em'+i).style.backgroundColor = '#000';
+                    if (i==3) {i = 0}
+                    int=self.setInterval("dinashiqi()",3000);
+                }
+            }
+        </script>
+    </head>
+    <body style="background-color: #f5f5f7">
+        <header class="head">
+            <ul >
+                <li id="li0" style="background-image: url('img/m-1.png');background-repeat: on-repeat;"></li>
+                <li id="li1" style="background-image: url('img/m-2.png');background-repeat: on-repeat;display: none;"></li>
+                <li id="li2" style="background-image: url('img/m-3.png');display: none;background-repeat: on-repeat;"></li>
+            </ul>
+            <div class="nav">
+                <div class="nav-1">
+                </div>
+                <div class="nav-2">
+                    <span style="font-size: 14px;color: #888;">天津</span>
+                    <span style="display: inline-block;width: 11px;height: 6px;background-image: url(img/m-4.png);background-position: -265px -35px;"></span>
+                </div>
+                <div class="phone">400-060-6046</div>
+                <div class="login"><a href="Login" >欢迎登陆</a></div>
+                <div class="nav-nav">
+                    <a href="indexqt" class="action">首页</a>
+                    <a href="PurchaseCar">我要买车</a>
+                    <a href="SellCar">我要卖车</a>
+                    <a href="ServerPro">瓜子服务</a>
+                    <a href="CarPur">瓜子金融</a>
+                    <a href="BeanNewCar">毛豆新车</a>
+                    <a href="OldCarCon">瓜子问答</a>
+                </div>
+                <span id="zuo" style="position:absolute;top:200px;left: 7px;font-size: 20px;color: #888;font-weight: 900;">&lt;</span>
+                <span id="you" style="position:absolute;top:200px;right: 7px;font-size: 20px;color: #888;font-weight: 900;">&gt;</span>
+                <div class="nav-btn">
+                    <em id="em0" style="background-color:#000"></em>
+                    <em id="em1"></em>
+                    <em id="em2"></em>
+                </div>
+        </header>
+        <div id="body">
+            <div class="head-body">
+                <div>
+                    <div class="head-body-left">
+                        <div class="head-body-youou">
+                            <a href="#">我要买车 ></a>
+                            <div> 
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="head-body-piaonei">
+                            <a href="#"><img  src="img/dazhong.png">大众</a>
+                            <a href="#"  class="kongge">丰田</a>
+                            <a href="#" class="kongge">福特</a>
+                            <a href="#" class="kongge">奔驰</a>
+                            <a href="#" class="kongge">宝马</a>
+                            <a href="#" class="kongge">奥迪</a>
+                            <a href="#" class="kongge">...更多</a>
+                        </div>
+                        <div class="head-body-piaonei">
+                            <a href="#">3万以下</a>
+                            <a href="#"  class="kongge">3-5万</a>
+                            <a href="#" class="kongge">5-7万</a>
+                            <a href="#" class="kongge">7-9万</a>
+                            <a href="#" class="kongge">9-12万</a>
+                            <a href="#" class="kongge">12-16万</a>
+                            <a href="#" class="kongge">16-20万</a>
+                        </div>
+                        <div class="head-body-piaonei">
+                            <a href="#">超值</a>
+                            <a href="#"  class="kongge">急售</a>
+                            <a href="#" class="kongge">练手车</a>
+                            <a href="#" class="kongge">准新车</a>
+                            <a href="#" class="kongge">保卖车</a>
+                            <a href="#" class="kongge">SUV</a>
+                            <a href="#" class="kongge">MPV</a>
+                        </div>
+
+                    </div>
+                    <div class="head-body-right">
+                        <div class="head-body-haha">
+                            <a href="#">我要买车 ></a>
+                            <span>已有<span  class="phone-number">16891648</span>人提交申请</span>
+                        </div>
+                        <div>
+                            <input type="text" class="phone-in" placeholder="请输入手机号">
+                        </div>
+                        <div>
+                            <button class="btn-woyao" style="background: #3cb46d;">我要买车</button>
+                            <button class="btn-woyao" style="background: #88ba00;margin-left: 5px">免费估计</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="channel-operate-title">
+                <h3>瓜子金融</h3>
+                <span>上千种精选金融产品 l 最快30分钟完成审批 l 98%以上申请可通过 l 金融专员全程服务</span>
+            </div>
+            <ul class="channel-operate-body">
+                <li>
+                    <a href="#"><img src="img/02781cc7e2415d2be8c8c82fac35b23d.png" alt=""></a>
+                </li>
+                <li class="channel-operate-li1" style="">
+                    <a href="#">
+                        <img src="img/6c0406e9ebdff3cb8dd0c6403244a790.png" alt="">
+                        <p>日供十元贷回家</p>
+                        <p style="color: #f76367;font-weight: 0">五万以 内练新车</p>
+                    </a>
+                </li>
+                <li style="width: 470px;height: 165px;margin-bottom: 16px;">
+                    <img src="img/f6e60e0f1837835de646be1f3bfb646c.png" style="margin-top:40px;" alt="">
+                    <div class="operate-item-text">
+                        <p>千元月供买好车</p>
+                        <p style="color: #f76367;font-weight: 0">5-10万 中产车</p>
+                    </div>
+                </li>
+                <li style="width: 470px;height: 165px;">
+                    <img src="img/8c0d350f2603b2708eb707c5ce64aac9.png" style="margin-top:40px;" alt="">
+                    <div class="operate-item-text">
+                        <p>五万首付高品质</p>
+                        <p style="color: #f76367;font-weight: 0">10-20万 热门车</p>
+                    </div>
+                </li>
+                <li style="margin-left: 16px;margin-top:-180px;">
+                    <img src="img/7aab69e905b387698076e3d988064d60.png" alt="">
+                </li>
+            </ul>
+            <div class="jaioyiguohu">
+                <div class="idimg" id="idimg1"><img  style="height: 400px;margin-left: -210px;" src="img/02zhuanrendaikan@2x.jpg" alt=""></div>
+                <div class="idimg" id="idimg2"><img  style="height: 400px;margin-left: -210px;" src="img/01yuyuekanche@2X.jpg" alt=""></div>
+                <div  class="idimg" id="idimg3"><img  style="height: 400px;margin-left: -210px;" src="img/03qianshuhetong@2x.jpg" alt=""></div>
+                <div class="idimg" id="idimg4"><img  style="height: 400px;margin-left: -210px;" src="img/buy-step-deal.jpg" alt=""></div>
+                <div class="zeyan" ><img  style="height: 400px;margin-left: -80px;" src="img/mask.3642195d3f6eed370c899cc57e6f772e.png" alt=""></div>
+                <div class="wenzi">
+                    <span class="pppp">买车流程</span>
+                    <span>|</span>
+                    <span>卖车流程</span>
+                    <div class="tishi">
+                        <p class="bigkanche">预约看车</p>
+                        <p class="xianxi">拨打400-060-6046或在线预约</p>
+                    </div>
+                    <div class="tupian">
+                        <p  style="float: left;"><img src="img/h--20171025164607.jpg" alt=""><br>预约看车&nbsp;&nbsp;&nbsp;>>&nbsp;</p>
+                        <p style="float: left;"><img src="img/57x4920171025170200.jpg" alt=""><br>专人带看&nbsp;&nbsp;&nbsp;>>&nbsp;</p>
+                        <p style="float: left;"><img src="img/57X4920171025170443.jpg" alt=""><br>预约看车&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;</p>
+                        <p style="float: left;"><img src="img/57x4920171025170548.jpg" alt=""><br>预约看车&nbsp;&nbsp;&nbsp;>>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nerongbianti">      
+                <span class="pppp">猜您喜欢</span>
+                <span>保卖车</span>
+                <span>最新上架</span>
+                <span>降价急售</span>
+                <span>准新车</span>
+                <span>练手车</span>
+                <span>SUV</span>
+            </div>
+            <div class="chezhang  ">
+                <ul class="clearfix ">
+                    <li><a href="">
+                            <img src="img/qn17102216270379f5222e954b8af4bded5f5e61d64f1e.jpg" alt="">
+                            <h3 class="t">丰田卡罗拉 2014款 1.6L CVT GL</h3>
+                            <div class="t-i">2015年<span class="icon-pad">|</span>4.5万公里</div>
+                            <div class="t-price">
+                                <!-- 价格 -->
+                                <p>10.70<span>万</span></p>
+                                <!-- 标签 -->
+                                <i class="i-orange">超值</i><i class="i-green">准新车</i><em class="line-through">14.60万</em>                    
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="">
+                            <img src="img/qn17102216270379f5222e954b8af4bded5f5e61d64f1e.jpg" alt="">
+                            <h3 class="t">丰田卡罗拉 2014款 1.6L CVT GL</h3>
+                            <div class="t-i">2015年<span class="icon-pad">|</span>4.5万公里</div>
+                            <div class="t-price">
+                                <!-- 价格 -->
+                                <p>10.70<span>万</span></p>
+                                <!-- 标签 -->
+                                <i class="i-orange">超值</i><i class="i-green">准新车</i><em class="line-through">14.60万</em>                    
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="">
+                            <img src="img/qn17102216270379f5222e954b8af4bded5f5e61d64f1e.jpg" alt="">
+                            <h3 class="t">丰田卡罗拉 2014款 1.6L CVT GL</h3>
+                            <div class="t-i">2015年<span class="icon-pad">|</span>4.5万公里</div>
+                            <div class="t-price">
+                                <!-- 价格 -->
+                                <p>10.70<span>万</span></p>
+                                <!-- 标签 -->
+                                <i class="i-orange">超值</i><i class="i-green">准新车</i><em class="line-through">14.60万</em>                    
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="">
+                            <img src="img/qn17102216270379f5222e954b8af4bded5f5e61d64f1e.jpg" alt="">
+                            <h3 class="t">丰田卡罗拉 2014款 1.6L CVT GL</h3>
+                            <div class="t-i">2015年<span class="icon-pad">|</span>4.5万公里</div>
+                            <div class="t-price">
+                                <!-- 价格 -->
+                                <p>10.70<span>万</span></p>
+                                <!-- 标签 -->
+                                <i class="i-orange">超值</i><i class="i-green">准新车</i><em class="line-through">14.60万</em>                    
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="">
+                            <img src="img/qn17102216270379f5222e954b8af4bded5f5e61d64f1e.jpg" alt="">
+                            <h3 class="t">丰田卡罗拉 2014款 1.6L CVT GL</h3>
+                            <div class="t-i">2015年<span class="icon-pad">|</span>4.5万公里</div>
+                            <div class="t-price">
+                                <!-- 价格 -->
+                                <p>10.70<span>万</span></p>
+                                <!-- 标签 -->
+                                <i class="i-orange">超值</i><i class="i-green">准新车</i><em class="line-through">14.60万</em>                    
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="index-carmore">
+                    <a style="font-size: 13px;font-weight: 700" href="###buy/">更多猜您喜欢 <span style="border: 1px solid #08A506;border-radius: 50%;padding:0 4px;color: #08A506">></span></a>
+                </div>
+            </div>
+            <div class="index-foot-buysell">
+                <div class="w1200 clearfix">
+                    <span class="iconbg"></span>
+                    <p class="foot-buysell-tel fl"><span class="iconbg"></span>免费咨询电话：400-060-6046</p>
+                    <div class="foot-buysell-btn fl">
+                        <a href="###buy/" class="foot-btn-buy">我要买车</a>
+                        <a href="###sell/" class="foot-btn-sell" >我要卖车</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <!--加载footer 信息部分 -->
+            <div class="company-info clearfix">
+                <div class="footer-logo"></div>
+                <div class="phone-email">
+                    <p>
+                        咨询电话：<i>400-060-6046</i> <br>
+                        <span>（周一至周日 8:00-21:00）</span>
+                    </p>
+                    <p>
+                        售后服务专线：<i>400-066-8780</i> <br>
+                        <span>（周一至周日 9:00-21:00）</span>
+                    </p>
+                </div>
+                <img src="img/ewm-wx-2.png" alt="" class="gz-ewm">
+                <p class="ewm-tit">关注微信</p>
+                <img src="img/ewm-app-2.png" alt="" class="gz-ewm">
+                <p class="ewm-tit">下载APP</p>
+                <div class="basic-info">
+                    <div class="info-link">
+                        <a rel="nofollow" href="###aboutus/" target="_blank">关于瓜子</a>
+                        <a rel="nofollow" href="###"  target="_blank">加入我们</a>
+                        <a rel="nofollow" href="###" target="_blank">联系我们</a>
+                        <a rel="nofollow" href="###" target="_blank">服务保障</a>
+                    </div>
+                    <p class="arc-info">Copyright 2017 www.guazi.com All Rights Reserved</p>
+                    <p class="arc-info">京ICP备15053955号  ICP证151071号 </p>
+                    <div class="protect clearfix">
+                        <a class="police" rel="nofollow" target="_blank" href="#">京公网安备11010802020161号</a>
+                    </div>
+                    <div class="protect protect-icon-xin315 clearfix">
+                        <a id="___szfw_logo___" href="#" class="icon-xin" target="_blank"></a>
+                        <a id="___szfw_logo___1" href="#" class="icon-315" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+            <!--seo 链接 -->
+
+            <div class="friendly-link">
+                <p class="link-tit">热门品牌：</p>
+                <span class="open-box"></span>
+                <span class="close-box" data-role="is_show_box"></span>
+                <a href="###/" target="_blank">天津二手大众</a>
+                <a href="###/" target="_blank">天津二手丰田</a>
+                <a href="###/" target="_blank">天津二手福特</a>
+                <a href="###/" target="_blank">天津二手奔驰</a>
+                <a href="###/" target="_blank">天津二手宝马</a>
+                <a href="###/" target="_blank">天津二手奥迪</a>
+                <a href="###/" target="_blank">天津二手别克</a>
+                <a href="###/" target="_blank">天津二手现代</a>
+                <a href="###/" target="_blank">天津二手日产</a>
+                <a href="###/" target="_blank">天津二手起亚</a>
+                <a href="###/" target="_blank">天津二手比亚迪</a>
+                <a href="###/" target="_blank">天津二手标致</a>
+                <a href="###/" target="_blank">天津二手本田</a>
+                <a href="###/" target="_blank">天津二手雪佛兰</a>
+                <a href="###/" target="_blank">天津二手雪铁龙</a>
+                <a href="###/" target="_blank">天津二手哈弗</a>
+                <a href="###/" target="_blank">天津二手吉利</a>
+                <a href="###-/" target="_blank">天津二手夏利</a>
+                <a href="###/" target="_blank">天津二手长安</a>
+                <a href="###-/" target="_blank">天津二手一汽</a>
+                <a href="###/" target="_blank">天津二手奇瑞</a>
+                <a href="###/" target="_blank">天津二手长城</a>
+                <a href="###/" target="_blank">天津二手五菱</a>
+                <a href="###/" target="_blank">天津二手路虎</a>
+                <a href="###/" target="_blank">天津二手马自达</a>
+                <a href="###/" target="_blank">天津二手斯柯达</a>
+                <a href="###/" target="_blank">天津二手江淮</a>
+                <a href="###/" target="_blank">天津二手保时捷</a>
+                <a href="###/" target="_blank">天津二手MINI</a>
+                <a href="###/" target="_blank">天津二手众泰</a>
+                <a href="###/" target="_blank">天津二手海马</a>
+                <a href="###/" target="_blank">天津二手传祺</a>
+                <a href="###/" target="_blank">天津二手铃木</a>
+                <a href="###/" target="_blank">天津二手MG</a>
+                <a href="###/" target="_blank">天津二手沃尔沃</a>
+            </div>
+            <div class="friendly-link">
+                <p class="link-tit">热门车系：</p>
+                <span class="open-box"></span>
+                <span class="close-box" data-role="is_show_box"></span>
+                <a href="###/" target="_blank">天津二手大众速腾</a>
+                <a href="####/" target="_blank">天津二手大众宝来</a>
+                <a href="###/" target="_blank">天津二手大众迈腾</a>
+                <a href="### /" target="_blank">天津二手大众朗逸</a>
+                <a href="### /" target="_blank">天津二手大众高尔夫</a>
+                <a href="### /" target="_blank">天津二手大众途观</a>
+                <a href="### - /" target="_blank">天津二手大众大众PO...</a>
+                <a href="### /" target="_blank">天津二手大众捷达</a>
+                <a href="### - /" target="_blank">天津二手福特福克斯</a>
+                <a href="### /" target="_blank">天津二手哈弗哈弗H6</a>
+                <a href="### /" target="_blank">天津二手丰田卡罗拉</a>
+                <a href="### - /" target="_blank">天津二手丰田普拉多</a>
+                <a href="### /" target="_blank">天津二手丰田威驰</a>
+                <a href="### /" target="_blank">天津二手丰田凯美瑞</a>
+                <a href="#####" target="_blank">天津二手夏利夏利</a>
+                <a href="###" target="_blank">天津二手宝马宝马3系</a>
+                <a href="####" target="_blank">天津二手宝马宝马5系</a>
+                <a href="###" target="_blank">天津二手奥迪奥迪A6...</a>
+                <a href="###" target="_blank">天津二手奥迪奥迪A4...</a>
+                <a href="###" target="_blank">天津二手奥迪奥迪Q5</a>
+                <a href="###" target="_blank">天津二手别克凯越</a>
+                <a href="#####" target="_blank">天津二手别克君威</a>
+                <a href="####" target="_blank">天津二手别克君越</a>
+                <a href="#####" target="_blank">天津二手雪铁龙世嘉</a>
+                <a href="####" target="_blank">天津二手雪佛兰科鲁兹</a>
+                <a href="####" target="_blank">天津二手雪佛兰赛欧</a>
+                <a href="####" target="_blank">天津二手奔驰奔驰C级</a>
+                <a href="####" target="_blank">天津二手奔驰奔驰E级</a>
+                <a href="####" target="_blank">天津二手日产轩逸</a>
+                <a href="####" target="_blank">天津二手日产天籁</a>
+                <a href="####" target="_blank">天津二手标致标致20...</a>
+                <a href="####" target="_blank">天津二手比亚迪秦</a>
+                <a href="####" target="_blank">天津二手本田本田CR...</a>
+                <a href="###" target="_blank">天津二手起亚智跑</a>
+                <a href="####" target="_blank">天津二手现代现代ix...</a>
+            </div>
+            <div class="friendly-link">
+                <p class="link-tit">友情链接：</p>
+                <span class="open-box"></span>
+                <span class="close-box" data-role="is_show_box"></span>
+                <a href="###">天津厂房出租</a>
+                <a href="###">天津学车</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津百姓网</a>
+                <a href="###">天津天气预报15天</a>
+                <a href="###">天津信息网</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津车市</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津房产网</a>
+                <a href="###">天津建材网</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津车展</a>
+                <a href="###">天津汽车网</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津汽车网</a>
+                <a href="###">天津汽车陪练</a>
+                <a href="###">天津信息港</a>
+                <a href="###">搜狐汽车天津站</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津二手设备回收</a>
+                <a href="###">天津二手车</a>
+                <a href="###">天津地图</a>
+                <a href="###">天津汽车网</a>
+                <a href="###">天津分类信息</a>
+                <a href="###">天津汽车票</a>
+                <a href="###">高速路况查询</a>
+            </div>
+
+            <div class="friendly-link">
+                <p class="link-tit">热门城市：</p>
+                <span class="open-box"></span>
+                <span class="close-box" data-role="is_show_box"></span>
+                <a href="##">全国二手车</a>
+                <a href="##">郑州二手车</a>
+                <a href="##">上海二手车</a>
+                <a href="##">沈阳二手车</a>
+                <a href="##">昆明二手车</a>
+                <a href="##">北京二手车</a>
+                <a href="##">南宁二手车</a>
+                <a href="##">长春二手车</a>
+                <a href="##">成都二手车</a>
+                <a href="###">天津二手车</a>
+                <a href="##">广州二手车</a>
+                <a href="##">重庆二手车</a>
+                <a href="##">东莞二手车</a>
+                <a href="##">大连二手车</a>
+                <a href="##">石家庄二手车</a>
+                <a href="##">杭州二手车</a>
+                <a href="##">兰州二手车</a>
+                <a href="##">青岛二手车</a>
+                <a href="##">西安二手车</a>
+                <a href="##">宁波二手车</a>
+                <a href="##">济南二手车</a>
+                <a href="##">深圳二手车</a>
+                <a href="##">贵阳二手车</a>
+                <a href="##">唐山二手车</a>
+                <a href="##">哈尔滨二手车</a>
+                <a href="##">苏州二手车</a>
+                <a href="##">武汉二手车</a>
+                <a href="##">佛山二手车</a>
+                <a href="##">福州二手车</a>
+                <a href="##">南京二手车</a>
+                <a href="#">长沙二手车</a>
+                <a href="#">二手车</a>
+            </div>
+
+
+
+            <div class="friendly-link">
+                <p class="link-tit">移动版：</p>
+                <a href="###">瓜子二手车天津移动页</a>
+            </div>
+
+            <div class="friendly-link">
+                <p class="link-tit">热门页面：</p>
+                <span class="open-box"></span>
+                <span class="close-box" data-role="is_show_box"></span>
+                <a href="#">1万元二手车</a>
+                <a href="#">2万左右二手车</a>
+                <a href="#">3万的二手车</a>
+                <a href="#">4万的二手车</a>
+                <a href="#">5万以下二手车</a>
+                <a href="#">二手越野车</a>
+                <a href="#">二手商务车</a>
+                <a href="#">二手跑车</a>
+                <a href="#">自动挡二手车</a>
+                <a href="#">急卖二手车</a>
+                <a href="#">低价出售二手车</a>
+                <a href="#">二手车评估</a>
+                <a href="#">二手车分期付款</a>
+                <a href="#">二手豪华车</a>
+                <a href="#">二手柴油越野车</a>
+                <a href="#">7座二手车</a>
+                <a href="#">便宜二手奥迪</a>
+                <a href="#">柴油二手车</a>
+                <a href="#">二手电动汽车</a>
+                <a href="#">最新二手车</a>
+                <a href="#">买卖二手车</a>
+                <a href="#">二手七座商务车</a>
+                <a href="#">全国二手车</a>
+                <a href="#">天津二手车交易网</a>
+                <a href="#">网站地图</a>
+            </div>
+
+
+            <!--公司信息-->
+            <p style="text-align:center;line-height:20px;font-size:12px;color:#666; padding-top:20px;">
+                车好多旧机动车经纪（北京）有限公司   
+                北京市丰台区南四环中路260号北京新发地汽车交易市场旧车经营区B区178号   
+                010-57317000
+            </p>
+        </div>
+    </body>
+</html>

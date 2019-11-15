@@ -1,0 +1,178 @@
+
+<!--品牌查询-->
+<table id="dgchangshang" class="easyui-datagrid"
+       style="width:400px;height:250px"
+       data-options="toolbar:'#tbchangshang',
+                        pagination:true,
+                        url:'cx_changshangx',
+                        fitColumns:true,
+                        singleSelect:false,
+                        fit:true">
+    <thead>
+    <tr>
+        <!--    private Integer factoryId;
+
+    private String factoryName;
+
+    private String brandName;
+
+    private String factoryLog;
+
+    private Date factoryTime;-->
+        <th data-options="field:'ch',checkbox:true,width:100 "></th>
+        <th data-options="field:'factoryId',width:60,align:'center'">厂商序号</th>
+        <th data-options="field:'factoryName',width:60,align:'center'">厂商序号</th>
+        <th data-options="field:'brandName',width:100">品牌名称</th>
+        <th data-options="field:'factoryLog',width:100,formatter:showImg">品牌log</th>
+        <th data-options="field:'factoryTime',width:100,formatter:formatTime">品牌创建时间</th>
+    </tr>
+    </thead>
+</table>
+
+<div id="tbchangshang">
+    品牌名称:<input type="text" id="bychangshangName" placeholder="请输入"/>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="searchchangshang()">查询</a>
+
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addchangshang()">新增</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onclick="updatechangshang()">修改</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="deletechangshang()">删除</a>
+
+
+
+    <br>
+</div>
+
+
+<div id="addchangshangwin" style="top: 200px"></div>
+<div id="updatechangshangwin" style="top: 200px"></div>
+<script>
+    /*查询*/
+    function searchchangshang() {//激发 页码 页大小进行查
+        $('#dgchangshang').datagrid('load',{
+            /*给load方法添加查询条件*/
+            changshangname: $("#bychangshangName").val()
+
+        });
+    }
+
+    /*增加*/
+    function addchangshang() {
+        $('#addchangshangwin').window({
+            href: 'goaddchangshangwin',
+            width: 800,
+            height: 400,
+            model: true
+        })
+    }
+
+    /*修改*/
+    function updatechangshang() {
+        $('#updatechangshangwin').window({
+            href: 'goupdatechangshangwin',
+            width:800,
+            height:400,
+            modal:true
+        });
+    }
+
+
+    /* /!*删除*!/
+     function deletechangshang() {
+         $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
+             if (r){
+                 /!*这个地方写删除逻辑 比如向后端发出请求*!/
+                var selects = $("#dgchangshang").datagrid('getSelections');
+                if(selects.length>0){
+                    var items=[];
+                    for(i=0;i<selects.length;i++){
+                        items.push($("#dgchangshang").datagrid("getRowIndex",selects[i].brandId));
+                    }
+
+                    $.ajax({
+                        type: 'delete',
+                        url: '/deleteByBrandIds',
+                        dataType: 'json',
+                        contentType: "application/json",
+                        data: JSON.stringify(items),
+                        success:function (data) {
+                            $("#dgchangshang").datagrid("deleteRow");
+                            $('#dgchangshang').datagrid('reload');//成功则刷新
+                        },
+                        error:function (error) {
+                            $.messager.alert('信息提示', '删除失败！', 'info');
+                            $('#dgchangshang').datagrid('reload');//成功则刷新
+                        }
+                    });
+
+
+
+                    // alert(selects[i].brandId);
+                    //使用jquery向后端放删除请求
+                    //再清除本地的所选数据
+                    // $("#dgchangshang").datagrid('clearSelections');
+
+
+                }
+                 // $.messager.alert('友情提示','已经删除了。。。');
+             }
+         });
+     }*/
+
+
+
+
+
+    function deletechangshang() {
+        $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
+            if (r){
+                var selects=$("#dgchangshang").datagrid("getSelections");
+                if (selects.length>0){
+                    var items=[];
+                    for(i=0;i<selects.length;i++){
+                        items.push(selects[i].factoryId);
+                    }
+                    $.ajax({
+                        type: 'delete',
+                        url: '/deletechangshangfun',
+                        dataType: 'json',
+                        contentType: "application/json",
+                        data: JSON.stringify(items),
+                        success:function (data) {
+                            $("#dgchangshang").datagrid("deleteRow",index);
+                            $('#dgchangshang1').datagrid('reload');//成功则刷新
+                        },
+                        error:function (error) {
+                            $.messager.alert('信息提示', '删除成功！', 'info');
+                            $('#dgchangshang').datagrid('reload');//成功则刷新
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+
+
+
+    function formatTime(v,r,i) {
+
+        var d = new Date(v);
+        var year = d.getFullYear();
+        var month= d.getMonth()+1;
+        var date = d.getDate();
+        return year+'年'+month+'月'+date+"日"
+    }
+
+
+    function showImg(value, row, index) {
+        if(value){
+            return "<img style='width:80px;height:60px;' border='1' src='"+value+"'/>";
+        }
+    }
+
+</script>
+
+
+
+
+

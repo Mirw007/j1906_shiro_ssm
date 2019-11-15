@@ -1,0 +1,42 @@
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+<div>
+ <!--   <th data-options="field:'carxiId',width:60,align:'center'" id="carxiId">序号</th>
+    <th data-options="field:'carxiName',width:100">车系名称</th>
+    <th data-options="field:'brandName',width:100">品牌名称</th>
+    <th data-options="field:'carType',width:40,align:'center',width:100">类型</th>
+    <th data-options="field:'#',width:100,formatter:rowformater">操作</th>-->
+        <h4>个人资料</h4>
+    <div>
+        <div style="border:1px blue solid">
+            <form id="ff" method="post">
+                序号：<input th:value="${result.carxiId}" name="carxiId"/><br>
+                车系名称：<input th:value=" ${result.carxiName}" name="carxiName"/><br>
+                品牌名称： <input th:value=" ${result.brandName}" name="brandName"/><br>
+                类型：<input th:value="${result.carType}" name="carType"/><br>
+                <a href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="updateCar_xi()">立即更新</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function updateCar_xi() {
+        $('#ff').form({
+            url: 'carxi/update',
+            onSubmit: function () {
+                return true;
+            },
+            success: function (data) {
+                var myData = JSON.parse(data);
+                $.messager.alert("提示", myData.message);
+                /*关闭*/
+                $("#win2").window("close");
+                $('#ff').datagrid('reload');//成功则刷新
+            }
+        });
+        /*第二步*/
+        $('#ff').submit();
+    }
+</script>
+</html>

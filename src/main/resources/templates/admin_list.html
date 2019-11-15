@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="tb">
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="userSearch()">查询</a><br/>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="userAdd()">新增</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onclick="userEdit()">修改</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'"  onclick="userDelete()">删除</a>
+</div>
+<table >
+    <thead>
+    <tr>
+        <td>用户id</td>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>角色名</td>
+        <td>创建时间</td>
+
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user: ${userList}">
+        <td th:text="${user.userId}">id</td>
+        <td th:text="${user.userName}">用户名</td>
+        <td th:text="${user.password}"></td>
+
+    </tr>
+    </tbody>
+</table>
+<script>
+    function userAdd() {
+        $(".tree-title:contains('添加商品')").parent().click();
+    }
+</script>
+</body>
+</html>

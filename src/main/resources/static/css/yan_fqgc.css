@@ -1,0 +1,445 @@
+body{
+    margin:0;
+    padding: 0;
+    font-family: Microsoft Yahei, arial, "sans-serif";
+    min-width: 1190px;
+    border: 0;
+}
+*{
+    font-family: "黑体";
+    font-family: Microsoft Yahei,arial,"sans-serif";
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+li,ol,ul{
+    list-style: none;
+}
+input{
+    border: none;
+    font-size: 14px;
+}
+/*广告区域样式-------------------------------------------------------*/
+#bannerArea{
+    height: 390px;
+    background-color: #eaeaea;
+    padding-top: 10px;
+    background-image: url("../img/img-0.jpg");
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+#bannerArea .wrapper{
+    width: 1190px;
+    margin: 0 auto;
+}
+#bannerArea .wrapper .infoArea{
+    width: 315px;
+    height: 380px;
+    padding: 20px;
+    background-color: #fff;
+}
+#bannerArea .wrapper .infoArea .selfSupport{
+    width: 274px;
+    height: 204px;
+}
+#bannerArea .wrapper .infoArea .infoTitle{
+    height: 34px;
+    overflow: hidden;
+    line-height: 18px;
+    font-size: 16px;
+    color: #666;
+}
+#bannerArea .wrapper .infoArea .infoTitle span{
+    padding-left: 10px;
+    font-size: 12px;
+    color: #999;
+}
+#bannerArea .wrapper .infoArea .inArea{
+    height: 50px;
+}
+#bannerArea .wrapper .infoArea .codeBtnArea{
+    position: relative;
+}
+#bannerArea .wrapper .infoArea .codeBtnArea .codeBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 10px 0 0;
+    color: #999;
+    cursor: pointer;
+}
+#bannerArea .wrapper .infoArea .inArea .fullInput{
+    width: 275px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+}
+#bannerArea .infoArea .btnArea{
+    height: 70px;
+    position: relative;
+}
+#bannerArea .infoArea .btnArea .loanBtn{
+    height: 45px;
+    background-color: #fc5050;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#bannerArea .infoArea .btnArea .errorTip{
+    position: absolute;
+    color: #fc504f;
+    top: 46px;
+    text-align: center;
+    width: 100%;
+}
+
+#bannerArea .infoArea .infoTitle2{
+    height: 28px;
+}
+#bannerArea .infoArea .counterArea{
+    height: 50px;
+    padding-left: 15px;
+    position: relative;
+}
+#bannerArea .infoArea .counterArea .counterItem{
+    width: 40px;
+    height: 50px;
+    padding-left: 5px;
+    float: left;
+}
+#bannerArea .infoArea .counterArea .counterItem .counterContent{
+    width: 35px;
+    height: 50px;
+    background-color: #4b4b4b;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 28px;
+    border-radius: 3px;
+}
+/*介绍区域样式*/
+#introArea{
+    height: 80px;
+    background-color: #fbfbfb;
+}
+#introArea .introlWrapper{
+    width: 1188px;
+    padding: 0 1px;
+    margin: 0 auto;
+}
+#introArea .introlWrapper .introlItem{
+    width: 25%;
+    overflow: hidden;
+    float: left;
+}
+#introArea .introlWrapper .introlItem .iconArea{
+    width: 100px;
+    float: left;
+}
+#introArea .introlWrapper .introlItem .iconArea .icon{
+    margin-top: 23px;
+    width: 34px;
+    height: 34px;
+    float: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../img/intro1.png");
+}
+#introArea .introlWrapper .introlItem .iconArea .icon3{
+    margin-top: 18px;
+    width: 42px;
+    height: 36px;
+    background-image: url("../img/intro3.png");
+}
+#introArea .introlWrapper .introlItem .iconArea .icon2{
+    margin-top: 20px;
+    width: 33px;
+    height: 40px;
+    background-image: url("../img/intro2.png");
+}
+#introArea .introlWrapper .introlItem .iconArea .icon4{
+    margin-top: 18px;
+    width: 42px;
+    height: 36px;
+    background-image: url("../img/intro4.png");
+}
+#introArea .introlWrapper .introlItem .introTextArea{
+    float: left;
+    padding-left: 10px;
+    line-height: 18px;
+}
+
+#introArea .introlWrapper .introlItem .introTextArea .introTitle{
+    font-size: 18px;
+    color: #333;
+    padding-top: 20px;
+}
+#introArea .introlWrapper .introlItem .introTextArea .introDescription{
+    font-size: 14px;
+    color: #999;
+    padding-top: 5px;
+}
+
+/*壁纸展示区域样式*/
+#wrapper{
+    width: 1190px;
+    margin: 0 auto;
+}
+#wrapper .publicTitle{
+    padding: 50px 0 10px;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 22px;
+    line-height: 22px;
+}
+#wrapper .hotBuyArea{
+    height: 396px;
+    padding: 10px 0;
+}
+#wrapper .hotBuyArea .focusArea{
+    width: 594px;
+    height: 396px;
+    float: left;
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../img/focus1.jpg");
+}
+#wrapper .hotBuyArea .hotCar{
+    width: 596px;
+    height: 396px;
+    float: left;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup{
+    height: 198px;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem{
+    width: 198px;
+    padding: 0px 10px 0 20px;
+    height: 198px;
+    float: left;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem a:hover{
+    text-decoration: none;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCarTitle{
+    padding-top: 30px;
+    padding-left: 5px;
+    color: #e54121;
+    font-size: 18px;
+    height: 55px;
+    line-height: 18px;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCarDescription{
+    padding-left: 5px;
+    color: #666;
+    font-size: 14px;
+    height: 30px;
+    line-height: 18px;
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar1{
+    background-image: url("../img/hotCar1.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar2{
+    background-image: url("../img/hotCar2.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar3{
+    background-image: url("../img/hotCar3.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar4{
+    background-image: url("../img/hotCar4.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar5{
+    background-image: url("../img/hotCar5.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCar6{
+    background-image: url("../img/hotCar6.jpg");
+}
+#wrapper .hotBuyArea .hotCar .hotCarGroup .hotCarItem .hotCardPic{
+    width: 168px;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+/*---------------------客户展示区域样式---------------*/
+#wrapper .storyArea{
+    height: 360px;
+    padding: 20px 46px 0;
+}
+#wrapper .storyArea .storyItem{
+    width: 366px;
+    height: 307px;
+    float: left;
+}
+#wrapper .storyArea .storyItem .storyPic{
+    width: 229px;
+    height: 164px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+#wrapper .storyArea .storyItem .storyPic1{
+    background-image: url("../img/story1.jpg");
+}
+#wrapper .storyArea .storyItem .storyPic2{
+    background-image: url("../img/story2.jpg");
+}
+#wrapper .storyArea .storyItem .storyPic3{
+    background-image: url("../img/story3.jpg");
+}
+#wrapper .storyArea .storyItem .storyTitle{
+    padding-top: 20px;
+    width: 270px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e7e7e7;
+}
+#wrapper .storyArea .storyItem .storyDetail{
+    width: 270px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+}
+#wrapper .storyArea .storyItem .storyTitle .storyDescription{
+    font-size: 12px;
+    color: #999;
+}
+#wrapper .storyArea .storyItem .storyTitle .storyMotto{
+    padding-left: 5px;
+    font-size: 16px;
+    color: #e54121;
+}
+#wrapper .storyArea .storyItem .storyPrice{
+    width: 270px;
+    height: 35px;
+    padding-top: 10px;
+    font-size: 14px;
+    margin: 0 auto;
+    line-height: 18px;
+}
+#wrapper .storyArea .storyItem .storyPrice .priceTag{
+    font-size: 12px;
+    padding: 0 2px;
+    height: 14px;
+    line-height: 14px;
+    color: #999;
+    margin-right: 5px;
+    border: 1px solid #999;
+}
+#wrapper .storyArea .storyItem .storyPrice .price{
+    font-size: 14px;
+}
+#wrapper .storyArea .storyItem .storyPrice .ml20{
+    margin-left: 20px;
+}
+/*-----------------------------------------------------------*/
+#wrapper .publicTitle .publicDescription{
+    padding-left: 25px;
+    font-size: 16px;
+    color: #666;
+}
+#wrapper .publicTitle .publicRed{
+    color: #e54121;
+}
+#wrapper .serviceArea{
+    padding-top: 40px;
+    height: 518px;
+    position: relative;
+    background-image: url("../img/serviceArea.jpg");
+}
+#wrapper .loanProcessArea{
+    width: 1190px;
+    height: 180px;
+    padding: 40px 45px 0;
+    line-height: 20px;
+    position: relative;
+}
+#wrapper .loanProcessArea .processItem{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+#wrapper .loanProcessArea .processItem .processIconArea{
+    height: 55px;
+}
+#wrapper .loanProcessArea .processItem .processIcon{
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+#wrapper .loanProcessArea .processItem .processIcon1{
+    width: 34px;
+    height: 36px;
+    background-image: url("../img/process1.png");
+}
+#wrapper .loanProcessArea .processItem .processIcon2{
+    width: 34px;
+    height: 36px;
+    background-image: url("../img/process2.png");
+}
+#wrapper .loanProcessArea .processItem .processIcon3{
+    width: 38px;
+    height: 36px;
+    background-image: url("../img/process3.png");
+}
+#wrapper .loanProcessArea .processItem .processIcon4{
+    width: 36px;
+    height: 38px;
+    background-image: url("../img/process4.png");
+}
+#wrapper .loanProcessArea .processItem .processText1{
+    height: 30px;
+    font-size: 20px;
+}
+#wrapper .loanProcessArea .processItem .processText2{
+    font-size: 16px;
+    color: #999;
+}
+#wrapper .linkArea{
+    width: 1190px;
+    height: 350px;
+    margin: 0 auto;
+}
+#wrapper .linkArea .linkContent{
+    width: 1050px;
+    height: 200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+#wrapper .linkArea .linkContent .linkItem{
+    width: 175px;
+    height: 90px;
+    padding: 0 5px 10px;
+    float: left;
+    overflow: hidden;
+}
+#wrapper .linkArea .linkContent .linkItem img{
+    width: 100%;
+}
+#wrapper .linkArea .btnContent{
+    width: 201px;
+    margin: 0 auto;
+    height: 50px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+#wrapper .linkArea .btnContent .btn2{
+    width: 190px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #fff;
+    background-color: #e54121;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 22px;
+    float: left;
+    cursor: pointer;
+}

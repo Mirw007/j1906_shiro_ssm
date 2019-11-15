@@ -1,0 +1,116 @@
+<table id="dg1" class="easyui-datagrid"
+       data-options="toolbar:'#tb',url:'getCarkuan',pagination:true,fitColumns:true,singleSelect:false,fit:true"><thead>
+<tr>
+    <th data-options="field:'ch',checkbox:true,width:100"></th>
+    <th data-options="field:'carkuanId',width:60,align:'center'" id="carkuanId" name="carkuanId">序号</th>
+    <th data-options="field:'carxinName',width:100" name="carxinName">车款名称</th>
+    <th data-options="field:'brandName',width:100" name="brandName">所属品牌</th>
+    <th data-options="field:'carkuanTime',width:40,align:'center',width:100" name="carkaunTime">所属年款</th>
+    <th data-options="field:'carxiName',width:40,align:'center',width:100" name="carxiName">所属车系</th>
+    <th data-options="field:'carType',width:40,align:'center',width:100" name="carType">类型</th>
+   <!-- <th data-options="field:'#',width:100,formatter:rowformater">操作</th>-->
+</tr>
+</thead>
+</table>
+<div id="tb">
+    品牌:<input type="text" id="carType" placeholder="请输入"/>
+    类型<input type="text" id="carxinName" placeholder="名称模糊查询"/>
+    车系：<input type="text" id="carxiName" placeholder="请输入"/>
+    车款<input type="text" id="brandName" placeholder="名称模糊查询"/>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="carkuanSearch()">查询</a><br>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="showCar_kuan()">新增</a>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="openitem()">编辑</a>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="itemDeletes()">删除</a>
+</div>
+<div id="win1" style="top: 200px"></div>
+<!--</div>-->
+<script>
+
+    function showCar_kuan() {
+        $('#win1').window({
+            href: 'showCarkuan',
+            width:800,
+            height:400,
+            modal: true
+        });
+    }
+
+    function openitem(){
+        // $('#dg').form('clear');
+        var item = $('#dg').datagrid('getSelected');
+        if (!item) {
+            $.messager.alert('信息提示', '请选择一行！', 'info');
+            return;
+        }
+        console.log(item);
+        // $("#dg[name='carxiId']").val(item.carxiId);
+        // $("#dg[name='carxiName']").val(item.carxiName);
+        // $("#dg[name='brandName']").val(item.brandName);
+        // $("#dg[name='carType']").val(item.carType);
+        $('#win2').dialog({
+            cache: false,
+            href: '/showupdate/carkuanId?carkuanId='+ item.carkuanId,
+            closed: false,
+            width:300,
+            height:200,
+            modal: true,
+            title: "修改信息"
+            /* buttons: [{
+                 text: '确定',
+                 iconCls: 'icon-ok',
+                 handler: edit
+             }, {
+                 text: '取消',
+                 iconCls: 'icon-cancel',
+                 handler: function () {
+                     $('#wu-datagrid-2').dialog('close');
+                 }
+             }]*/
+        });
+    }
+    function carkuanSearch() {
+        $("#dg").datagrid('load',{
+            //给load方法添加查询条件
+            brandName:$("#brandName").val(),
+            carType:$("#carType").val(),
+            carxiName:$("#carxiName").val(),
+            carxinName:$("#carxinName").val()
+        });
+    }
+
+
+    function itemDeletes() {
+        $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
+            if (r){
+                var selects=$("#dg1").datagrid("getSelections");
+                if (selects.length>0){
+                    var items=[];
+                    for(i=0;i<selects.length;i++){
+                        items.push(selects[i].carkuanId);
+                    }
+                    $.ajax({
+                        type: 'delete',
+                        url: '/carkuan_delete',
+                        dataType: 'json',
+                        contentType: "application/json",
+                        data: JSON.stringify(items),
+                        success:function (data) {
+                            $("#dg1").datagrid("deleteRow",index);
+                            $('#dg1').datagrid('reload');//成功则刷新
+                        },
+                        error:function (error) {
+                            $.messager.alert('信息提示', '删除成功！', 'info');
+                            $('#dg1').datagrid('reload');//成功则刷新
+
+                        }
+                    });
+                }
+            }
+        });
+    }
+    function rowformater(v,r,i) {
+
+        return " <a href='/getCarById/carkuanId?carkuanId=" + r.carkuanId+"' target='_blank'>配置表</a>" ;
+
+    }
+</script>

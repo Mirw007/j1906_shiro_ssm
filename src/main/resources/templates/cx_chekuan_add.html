@@ -1,0 +1,47 @@
+<h2 align="center">车系添加</h2>
+<form id="ff1" method="post" style="align-content: center;top:500px">
+    <div>
+        <label> 序&nbsp;&nbsp;号：</label>
+        <input class="easyui-validatebox" type="text" name="carkuanId" data-options="required:true"  />
+    </div>
+    <div>
+        <label>车款名称:</label>
+        <input class="easyui-validatebox" type="text" name="carxinName" data-options="required:carxinName"  />
+    </div>
+    <div>
+        <label>所属品牌:</label>
+        <input class="easyui-validatebox" type="text" name="brandName" data-options="required:brandName" />
+    </div>
+    <div>
+        <label>所属年款:</label>
+        <input class="easyui-validatebox" type="text" name="carkuanTime" data-options="required:true"  />
+    </div>
+    <div>
+        <label>所属车系:</label>
+        <input class="easyui-validatebox" type="text" name="carxiName" data-options="required:carxiName" />
+    </div>
+    <div>
+        <label>类&nbsp;&nbsp;型:</label>
+        <input class="easyui-validatebox" type="text" name="carType" data-options="required:carType" />
+    </div>
+    <a href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addCar_kaun()">立即添加</a>
+</form>
+<script>
+    function addCar_kaun(){
+        $('#ff1').form({
+            url:'carkuan/add',
+            onSubmit: function(){
+                return true;
+            },
+            success:function(data){
+                var myData=JSON.parse(data);
+                $.messager.alert("提示",myData.message);
+                /*关闭*/
+                $("#win1").window("close");
+                $('#ff1').datagrid('reload');//成功则刷新
+            }
+        });
+        /*第二步*/
+        $('#ff').submit();
+    }
+</script>

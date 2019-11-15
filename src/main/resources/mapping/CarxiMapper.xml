@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.j1906.mapper.CarxiMapper" >
+  <resultMap id="BaseResultMap" type="com.qf.j1906.pojo.Carxi" >
+    <id column="carxi_id" property="carxiId" jdbcType="INTEGER" />
+    <result column="carxi_name" property="carxiName" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="car_type" property="carType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    carxi_id, carxi_name, brand_name, car_type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.qf.j1906.pojo.CarxiExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from carxi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from carxi
+    where carxi_id = #{carxiId,jdbcType=INTEGER}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from carxi
+    where carxi_id = #{carxiId,jdbcType=INTEGER}
+  </delete>
+
+
+
+  <delete id="delete">
+    DELETE FROM carxi
+    WHERE carxi_id in
+    <foreach collection="array" item="cc" open="(" separator="," close=")">
+      #{cc}
+    </foreach>
+
+  </delete>
+
+
+  <delete id="deleteRoleByAdminName">
+        DELETE FROM
+	        carxi
+        WHERE
+	        carxi_id = #{carxiId}
+    </delete>
+
+  <delete id="deleteByExample" parameterType="com.qf.j1906.pojo.CarxiExample" >
+    delete from carxi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.j1906.pojo.Carxi" >
+    insert into carxi (carxi_id, carxi_name, brand_name, 
+      car_type)
+    values (#{carxiId,jdbcType=INTEGER}, #{carxiName,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.j1906.pojo.Carxi" >
+    insert into carxi
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carxiId != null" >
+        carxi_id,
+      </if>
+      <if test="carxiName != null" >
+        carxi_name,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="carType != null" >
+        car_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carxiId != null" >
+        #{carxiId,jdbcType=INTEGER},
+      </if>
+      <if test="carxiName != null" >
+        #{carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        #{carType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.j1906.pojo.CarxiExample" resultType="java.lang.Integer" >
+    select count(*) from carxi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update carxi
+    <set >
+      <if test="record.carxiId != null" >
+        carxi_id = #{record.carxiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carxiName != null" >
+        carxi_name = #{record.carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brandName != null" >
+        brand_name = #{record.brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carType != null" >
+        car_type = #{record.carType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update carxi
+    set carxi_id = #{record.carxiId,jdbcType=INTEGER},
+      carxi_name = #{record.carxiName,jdbcType=VARCHAR},
+      brand_name = #{record.brandName,jdbcType=VARCHAR},
+      car_type = #{record.carType,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.j1906.pojo.Carxi" >
+    update carxi
+    <set >
+      <if test="carxiName != null" >
+        carxi_name = #{carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        car_type = #{carType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where carxi_id = #{carxiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.j1906.pojo.Carxi" >
+    update carxi
+    set carxi_name = #{carxiName,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      car_type = #{carType,jdbcType=VARCHAR}
+    where carxi_id = #{carxiId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,192 @@
+<table id="dg" class="easyui-datagrid"
+       data-options="toolbar:'#tb',url:'getrole',pagination:true,fitColumns:true,singleSelect:false,fit:true">
+    <thead id="">
+    <tr>
+        <th data-options="field:'ch',checkbox:true,width:100"></th>
+        <th data-options="field:'roleId',width:60,align:'center'" id="roleId">序号</th>
+        <th data-options="field:'userName',width:100" name="userName">用户名</th>
+        <th data-options="field:'roleName',width:100" name="roleName">用户称呼</th>
+        <th data-options="field:'roleTime',width:40,align:'center',width:100" name="roleTime">注册时间</th>
+        <!--    <th data-options="field:'#',width:100,formatter:rowformater">操作</th>-->
+    </tr>
+    </thead>
+</table>
+<div id="tb">
+    用户称呼:<input type="text" id="roleName" placeholder="请输入">
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" onclick="carkuanSearch()">查询</a>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="showCar_xi()">新增</a>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="itemDelete()">删除</a>
+    <a  href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="openitem()">编辑</a>
+    <table id="wu-datagrid-2" class="easyui-datagrid" toolbar="#wu-toolbar-2">
+
+    </table>
+</div>
+<div id="win" style="top: 200px"></div>
+<div id="win2" style="top: 200px">
+</div>
+<script>
+    /**
+     * 查询
+     */
+    function carkuanSearch() {
+        $("#dg").datagrid('load',{
+            //给load方法添加查询条件
+            roleName:$("#roleName").val(),
+        });
+    }
+    /*    function openitem() {
+            $("#win2").window({
+                //给load方法添加查询条件
+                brandName:$("#brandName").val(),
+                carType:$("#carType").val(),
+                carxiName:$("#carxiName").val(),
+            });
+        }*/
+    /**
+     * 修改车系
+     */
+    /* function edit() {
+         $.messager.progress();
+         $.ajax({
+             type:"put",
+             url:"/carxi/update"+$("#dg [name='carxiId']").val(),
+             dataType:"json",
+             data:$("#dg").serialize(),
+             success: function (data) {
+                 console.log(data);
+                 $.messager.alert("信息提示",'提交','info');
+                 $('#dg').dialog('close');
+                 $('#wu-datagrid-2').datagrid('reload');
+                 $.messager.progress('close');
+             },
+             error:function (error) {
+                 if(error.status==400){
+                     $.messager.alert("信息提示",'提交失败，不存在！','warning');
+
+                 }
+                 $.messager.progress('close');
+             }
+         });
+         $('#dg').form('submit', {
+             url: '',
+             success: function (data) {
+                 if (data) {
+                     $.messager.alert('信息提示', '提交成功！', 'info');
+                     $('#dg').datagrid('reload');//成功则刷新
+                     $('#wu-datagrid-2').dialog('close');
+                 } else {
+                     $.messager.alert('信息提示', '提交失败！', 'info');
+                 }
+             }
+         });
+     }*/
+
+    function openitem(){
+        // $('#dg').form('clear');
+        var item = $('#dg').datagrid('getSelected');
+        if (!item) {
+            $.messager.alert('信息提示', '请选择一行！', 'info');
+            return;
+        }
+        console.log(item);
+        // $("#dg[name='carxiId']").val(item.carxiId);
+        // $("#dg[name='carxiName']").val(item.carxiName);
+        // $("#dg[name='brandName']").val(item.brandName);
+        // $("#dg[name='carType']").val(item.carType);
+        $('#win2').dialog({
+            cache: false,
+            href: '/showCarxiById/carxiId?carxiId='+ item.carxiId,
+            closed: false,
+            width:300,
+            height:200,
+            modal: true,
+            title: "修改信息"
+            /* buttons: [{
+                 text: '确定',
+                 iconCls: 'icon-ok',
+                 handler: edit
+             }, {
+                 text: '取消',
+                 iconCls: 'icon-cancel',
+                 handler: function () {
+                     $('#wu-datagrid-2').dialog('close');
+                 }
+             }]*/
+        });
+    }
+
+    /**
+     * 打开添加窗口
+     */
+    function showCar_xi() {
+        $('#win').window({
+            href: 'showCarxi',
+            width:800,
+            height:400,
+            modal: true
+        });
+    }
+
+
+    function itemDelete() {
+        $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
+            if (r){
+                var selects=$("#dg").datagrid("getSelections");
+                if (selects.length>0){
+                    var items=[];
+                    for(i=0;i<selects.length;i++){
+                        items.push(selects[i].carxiId);
+                    }
+                    $.ajax({
+                        type: 'delete',
+                        url: '/delete',
+                        dataType: 'json',
+                        contentType: "application/json",
+                        data: JSON.stringify(items),
+                        success:function (data) {
+                            $("#dg").datagrid("deleteRow",index);
+                            $('#dg1').datagrid('reload');//成功则刷新
+                        },
+                        error:function (error) {
+                            $.messager.alert('信息提示', '删除成功！', 'info');
+                            $('#dg').datagrid('reload');//成功则刷新
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    function formatTime(v,r,i){
+        var d =new Date(v);
+        var year = d.getFullYear();
+        var month = d.getMonth()+1;
+        var date = d.getDate();
+        return year+'年'+month+'月'+date+'日'
+    }
+    function formatTime2(v,r,i) {
+        return moment(y).format("YYYY-MM-DD")
+    }
+    function formatStatus(v,r,i){
+        if(v==1){
+            return "正常"
+        }else if(v==2){
+            return "下架"
+        }else{
+            return "删除"
+        }
+    }
+    function formatPrice(v,r,i){
+
+        return v/100 ;
+    }
+    function rowformater(v,r,i) {
+
+        return "<a href='/showCarxiById/carxiId?carxiId=" + r.carxiId+"' target='_blank'>编辑</a>";
+    }
+
+    function deleteCarXi() {
+        var item=$("#dg").datagrid("getSelected")
+
+    }
+</script>

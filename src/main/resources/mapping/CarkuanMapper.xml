@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.j1906.mapper.CarkuanMapper" >
+  <resultMap id="BaseResultMap" type="com.qf.j1906.pojo.Carkuan" >
+    <id column="carkuan_id" property="carkuanId" jdbcType="INTEGER" />
+    <result column="carxin_name" property="carxinName" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="carkuan_time" property="carkuanTime" jdbcType="INTEGER" />
+    <result column="carxi_name" property="carxiName" jdbcType="VARCHAR" />
+    <result column="car_type" property="carType" jdbcType="VARCHAR" />
+    <result column="car_price" property="carPrice" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    carkuan_id, carxin_name, brand_name, carkuan_time, carxi_name, car_type, car_price
+  </sql>
+
+  <select id="selectCarkuans" resultMap="BaseResultMap" parameterType="com.qf.j1906.pojo.CarkuanExample">
+    select * from carkuan
+  </select>
+
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.qf.j1906.pojo.CarkuanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from carkuan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from carkuan
+    where carkuan_id = #{carkuanId,jdbcType=INTEGER}
+  </select>
+  <delete id="delete">
+    DELETE FROM carkuan
+    WHERE carkuan_id in
+    <foreach collection="array" item="cc" open="(" separator="," close=")">
+      #{cc}
+    </foreach>
+
+  </delete>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from carkuan
+    where carkuan_id = #{carkuanId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.j1906.pojo.CarkuanExample" >
+    delete from carkuan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.j1906.pojo.Carkuan" >
+    insert into carkuan (carkuan_id, carxin_name, brand_name, 
+      carkuan_time, carxi_name, car_type, 
+      car_price)
+    values (#{carkuanId,jdbcType=INTEGER}, #{carxinName,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, 
+      #{carkuanTime,jdbcType=INTEGER}, #{carxiName,jdbcType=VARCHAR}, #{carType,jdbcType=VARCHAR}, 
+      #{carPrice,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.j1906.pojo.Carkuan" >
+    insert into carkuan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carkuanId != null" >
+        carkuan_id,
+      </if>
+      <if test="carxinName != null" >
+        carxin_name,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="carkuanTime != null" >
+        carkuan_time,
+      </if>
+      <if test="carxiName != null" >
+        carxi_name,
+      </if>
+      <if test="carType != null" >
+        car_type,
+      </if>
+      <if test="carPrice != null" >
+        car_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carkuanId != null" >
+        #{carkuanId,jdbcType=INTEGER},
+      </if>
+      <if test="carxinName != null" >
+        #{carxinName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="carkuanTime != null" >
+        #{carkuanTime,jdbcType=INTEGER},
+      </if>
+      <if test="carxiName != null" >
+        #{carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carPrice != null" >
+        #{carPrice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.j1906.pojo.CarkuanExample" resultType="java.lang.Integer" >
+    select count(*) from carkuan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update carkuan
+    <set >
+      <if test="record.carkuanId != null" >
+        carkuan_id = #{record.carkuanId,jdbcType=INTEGER},
+      </if>
+      <if test="record.carxinName != null" >
+        carxin_name = #{record.carxinName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brandName != null" >
+        brand_name = #{record.brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carkuanTime != null" >
+        carkuan_time = #{record.carkuanTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.carxiName != null" >
+        carxi_name = #{record.carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carType != null" >
+        car_type = #{record.carType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carPrice != null" >
+        car_price = #{record.carPrice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update carkuan
+    set carkuan_id = #{record.carkuanId,jdbcType=INTEGER},
+      carxin_name = #{record.carxinName,jdbcType=VARCHAR},
+      brand_name = #{record.brandName,jdbcType=VARCHAR},
+      carkuan_time = #{record.carkuanTime,jdbcType=INTEGER},
+      carxi_name = #{record.carxiName,jdbcType=VARCHAR},
+      car_type = #{record.carType,jdbcType=VARCHAR},
+      car_price = #{record.carPrice,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.j1906.pojo.Carkuan" >
+    update carkuan
+    <set >
+      <if test="carxinName != null" >
+        carxin_name = #{carxinName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="carkuanTime != null" >
+        carkuan_time = #{carkuanTime,jdbcType=INTEGER},
+      </if>
+      <if test="carxiName != null" >
+        carxi_name = #{carxiName,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        car_type = #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carPrice != null" >
+        car_price = #{carPrice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where carkuan_id = #{carkuanId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.j1906.pojo.Carkuan" >
+    update carkuan
+    set carxin_name = #{carxinName,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      carkuan_time = #{carkuanTime,jdbcType=INTEGER},
+      carxi_name = #{carxiName,jdbcType=VARCHAR},
+      car_type = #{carType,jdbcType=VARCHAR},
+      car_price = #{carPrice,jdbcType=DOUBLE}
+    where carkuan_id = #{carkuanId,jdbcType=INTEGER}
+  </update>
+</mapper>

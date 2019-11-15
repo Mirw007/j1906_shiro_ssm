@@ -1,0 +1,41 @@
+<form id="ff" method="post">
+    <div>
+        <label for="brandName">品牌名称:</label>
+        <input class="easyui-validatebox" type="text" name="brandName" data-options="required:true" />
+    </div>
+    <div>
+        <label for="brandLog">品牌log:</label>
+        <input class="easyui-validatebox" type="text" name="brandLog" data-options="validType:'brandLog'" />
+    </div>
+    <div>
+        <label for="brandTime">创建时间:</label>
+        <input class="easyui-validatebox" type="text" name="brandTime" data-options="validType:'brandTime'" />
+    </div>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="quickaddpinai()">立刻添加</a>
+
+</form>
+<script>
+
+function quickaddpinai(){
+    <!--ajax第一步-->
+    $('#ff').form({
+        url:'addpinpaifun',
+        onSubmit: function(){
+            // do some check
+            // return false to prevent submit;
+            return true;
+        },
+        success:function(data){
+            var myData = JSON.parse(data);
+            $.messager.alert("提示",myData.message);
+            $("#addpinpaiwin").window("close");
+
+        }
+    });
+    /*ajax提交第二部*/
+    // submit the form
+    $('#ff').submit();
+}
+
+</script>
+

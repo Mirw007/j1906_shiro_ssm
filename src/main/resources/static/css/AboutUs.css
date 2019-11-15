@@ -1,0 +1,285 @@
+body,dd,div,dl,dt,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,select,td,textarea,th,ul{
+	margin:0;
+	padding:0
+}
+/*第一层*/
+
+#header{
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	height: 64px;
+	/*border: 1px #F0D0F0 solid;*/
+}
+.header{
+	height: 64px;
+    width: 1200px;
+    margin: 0 auto;
+    /*border: 1px #F000F0 solid;*/
+}
+#header .header .logo-img{
+	/*display: block;*/
+	height: 100%;
+}
+/*导航栏*/
+.top{
+	float: right;
+	width: 550px;
+	height: 62px;
+    /*border: 1px #F000F0 solid;*/
+}
+#header .top-tel{
+	float: right;
+    width: 154px;
+    height: 100%;
+    padding-left: 10px;
+    background: url(../img/tel.png) no-repeat right 53%;
+    background-size: 148px 22px;
+    margin: 0;
+    /*opacity: 1;*/
+    /*border: 0;*/
+}
+.one-nva ul{
+	list-style: none;
+	float: right;
+    height: 100%;
+    padding-right: 25px;
+    max-width: 950px;
+	/*overflow: hidden;*/
+}
+.one-nva ul li{
+	margin-right: 30px;
+	float: left;
+}
+.one-nva ul li a{
+	text-decoration: none;
+	display: inline-block;
+    position: relative;
+    height: 61px;
+    border-bottom: 3px solid transparent;
+    line-height: 68px;
+    font-size: 16px;
+    color: #3f4359;
+    text-align: center;
+	
+}
+#header .header .top .one-nva .item{
+	display: inline-block;
+    position: relative;
+}
+#header .header .top .one-nva .item .h-hover{
+	color: #3f4359;
+	background-color: #fff;
+	display: none;
+  	position: absolute;
+  	left: 50%;
+    top: 20px;
+    width: 184px;
+    height: 222px;
+    margin: 30px 0 0 -92px;
+    /*padding-top: 38px;*/
+    text-align: center;
+    opacity: 1;
+    z-index: 10;
+    -webkit-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+}
+#header .header .top .one-nva .item .h-hover .code-wrap{
+	/*width: 110px;*/
+	/*height: 120px;*/
+	position: relative;
+    width: 184px;
+    height: 196px;
+    padding-top: 26px;
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(63,67,89,.15);
+}
+#header .header .top .one-nva .item .h-hover .code-wrap .code-img img{
+	display: inline-block;
+    width: 124px;
+    height: 124px;
+    vertical-align: middle;
+	/*display: block;*/
+}
+#header .header .top .one-nva .item .h-hover .code-wrap .title{
+	/*margin-top: 15px;*/
+	margin: 15px 0 0 0;
+	padding: 0;
+    font-size: 14px;
+    color: #3f4359;
+    line-height: 18px;
+}
+#header .header .top .one-nva .item .h-hover .code-wrap .desc{
+	font-size: 14px;
+    color: #3f4359;
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+}
+#header .header .top .one-nva .item:hover .h-hover{
+	display: block;
+}
+/*---------------------------内容部分-----------------------------*/
+#about-me{
+	padding: 19px 0 40px;
+    background: #f5f5f5;
+}
+#about-me .content{
+	padding: 0 30px 40px;
+    background: #fff;
+    width: 1140px;
+    overflow: hidden;
+    margin: 19px auto 0;	
+}
+#about-me .content .content-title{
+	color: #ff7414;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 30px 0 20px;
+}
+#about-me .content .intro{
+	text-indent: 35px;
+    margin-bottom: 10px;
+}
+#about-me .content .steps{
+	margin-bottom: 16px;
+}
+#about-me .content .steps,#about-me .content .intro{
+	font-size: 16px;
+    color: #5b5e7b;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+#about-me .content .step{
+	font-size: 16px;
+    color: #8d91ac;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+#about-me .content .step span{
+	display: block;
+    font-size: 18px;
+    color: #5b5e7b;
+    letter-spacing: 0;
+}
+#about-me .content .step .detail{
+	color: #8d91ac;
+    font-size: 16px;
+    margin: 7px 0 10px;
+}
+/*------------------------------------------foot----------------*/
+#foot{
+	width: 100%;
+    background: #3f4359;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    /*border: 1px #f00 solid;*/
+    
+}
+#foot .foot{
+	width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+     /*border: 1px #f00 solid;*/
+}
+#foot .foot .about-us{
+	height: 130px;
+    overflow: hidden;
+}
+/*-----------------footer左侧-------------*/
+#foot .foot .about-us .logo{
+	min-width: 200px;
+	height: 132px;
+	float: left;
+    color: #fff;
+}
+#foot .foot .about-us .logo .site-info{
+	margin-top: 35px;
+	font-size: 12px;
+    color: #8d90ac;;
+}
+#foot .foot .about-us .logo .site-info p{
+	display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-size: 12px;
+    color: #8d90ac;
+    margin: 0;
+}
+#foot .foot .about-us .logo .site-info .beian{
+	/*margin-top: 3px;*/
+    padding-left: 16px;
+    background: url(../img/icon_beian.png) no-repeat left 1px;
+    background-size: 12px 13px;
+}
+#foot .foot .about-us .logo .site-info .beian a{
+	font-size: 12px;
+    color: #8d90ac;
+    text-decoration: none;
+}
+/*------------------------------footer中间层--------------------*/
+#foot .foot .about-us .qrcodes{
+	margin-left: 156px;
+    float: left;
+    color: #FFFFFF;
+}
+#foot .foot .about-us .qrcodes .qrcdoe-item{
+	float: left;
+    width: 108px;
+    height: 130px;
+    margin-right: 40px;
+    background: #fff;
+}
+#foot .foot .about-us .qrcodes .qrcdoe-item .ewm{
+	height: 108px;
+    width: 108px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+#foot .foot .about-us .qrcodes .qrcdoe-item .ewm img{
+	width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+#foot .foot .about-us .qrcodes .qrcdoe-item .ewm-txt{
+	padding-bottom: 6px;
+    font-size: 12px;
+    color: #3f4359;
+    text-align: center;
+    line-height: 16px;
+}
+/*-------------------------右侧---------------*/
+#foot .foot .about-us .tel{
+	float: right;
+    text-align: right;
+    /*float: left;*/
+    color: #fff;
+}
+#foot .foot .about-us .tel .tel-num{
+	font-size: 32px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 27px;
+}
+#foot .foot .about-us .tel .text{
+	margin-top: 4px;
+    font-size: 16px;
+    color: #8d90ac;
+    line-height: 22px;
+}
+#foot .foot .about-us .tel .site-info{
+	margin-top: 38px;
+	font-size: 12px;
+    color: #8d90ac;
+}
+#foot .foot .about-us .tel .site-info .compony{
+	display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
